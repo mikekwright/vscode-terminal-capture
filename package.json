@@ -2,7 +2,12 @@
 	"name": "vscode-terminal-capture",
 	"displayName": "Terminal Capture",
 	"description": "  Take an open terminal's output and open it in a tab to quickly navigate and edit the output.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikekwright/vscode-terminal-capture"
+  },
 	"version": "0.0.1",
+  "publisher": "devwright",
 	"engines": {
 		"vscode": "^1.31.0"
 	},
@@ -50,5 +55,8 @@
 		"tslint": "^5.12.1",
 		"@types/node": "^10.12.21",
 		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"vsce": "^1.57.0"
 	}
 }
