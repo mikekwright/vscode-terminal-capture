@@ -1,16 +1,16 @@
 {
 	"name": "vscode-terminal-capture",
 	"displayName": "Terminal Capture",
-	"description": "  Take a terminal  Take the buffer from a running terminal and open it in a tab to quickly navigate, edit the output.",
+	"description": "  Take an open terminal's output and open it in a tab to quickly navigate and edit the output.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.31.0"
 	},
 	"categories": [
-    "Other"
+		"Other"
 	],
 	"activationEvents": [
-    "*"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,24 +18,24 @@
 			{
 				"command": "extension.terminalCapture.runCapture",
 				"title": "Terminal: Capture"
-      }
-    ],
-    "configuration": {
-      "title": "Terminal Capture",
-      "type": "object",
-      "properties": {
-        "terminalCapture.enable": {
-          "type": "boolean",
-          "description": "If false, disable the terminal capture extension",
-          "default": true
-        },
-        "terminalCapture.useClipboard": {
-          "type": "boolean",
-          "description": "If false, use the cache mode that tracks all history",
-          "default": true
-        }
-      }
-    }
+			}
+		],
+		"configuration": {
+			"title": "Terminal Capture",
+			"type": "object",
+			"properties": {
+				"terminalCapture.enable": {
+					"type": "boolean",
+					"description": "If false, disable the terminal capture extension",
+					"default": true
+				},
+				"terminalCapture.useClipboard": {
+					"type": "boolean",
+					"description": "If false, use the cache mode that tracks all history",
+					"default": true
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

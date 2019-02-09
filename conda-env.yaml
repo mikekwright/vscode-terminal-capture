@@ -1,0 +1,8 @@
+name: vscode-dev
+channels:
+  - conda-forge
+  - javascript
+  - defaults
+dependencies:
+  - nodejs>=11.9.0
+
