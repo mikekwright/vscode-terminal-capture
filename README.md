@@ -56,7 +56,7 @@ you can enter in the `keybindings.json` file.
 This extension has a couple of settings depending on the type of usage you would
 like to have.  
 
-* `terminalCaptuer.enable`: enable/disable this extension  
+* `terminalCapture.enable`: enable/disable this extension  
 * `terminalCapture.useClipboard`: use/disable clipboard copy mode  
 
 This extension has a single command.  
