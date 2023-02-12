@@ -13,7 +13,11 @@ flow quite as much.  So I decided to try my hand at writing a vscode extension.
 
 ## Features
 
-Take the output from the last active terminal and dump it into a new file.  
+Take the output from the last active terminal and dump it into a new file. Steps:
+
+1. Open the Command Palette (Ctrl/Command + Shift + P)
+2. Type "Terminal: Capture"
+3. Press enter
 
 ![Capture using Clipboard](images/vscode-terminal-capture-clipboard.gif)  
 
