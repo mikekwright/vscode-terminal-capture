@@ -15,9 +15,9 @@ Here is the flow that I would like to see if I can get access to the underlying 
 3. `terminalInstance.clearSelection()` - `src/vs/workbench/contrib/terminal/electron-browser/terminalActions.ts:164`
   `this._xterm.clearSelection()` - `src/vs/workbench/contrib/terminal/electron-browser/terminalInstance.ts:695`
 
-## Clearning Special Characters
+## Clearing Special Characters
 
-One of the first issues that I ran into is that the dat captured from the
+One of the first issues that I ran into is that the data captured from the
 terminal included special characters (like color selections).  
 
 This regex can be used in js to select all color code special characters so

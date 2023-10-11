@@ -1,15 +1,15 @@
 {
-	"name": "vscode-terminal-capture",
-	"displayName": "Terminal Capture",
+	"name": "vscode-better-terminal-capture",
+	"displayName": "Better Terminal Capture",
 	"description": "  Take an open terminal's output and open it in a tab to quickly navigate and edit the output.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikekwright/vscode-terminal-capture"
+    "url": "https://github.com/introcompsys/vscode-terminal-capture"
   },
-	"version": "0.0.1",
-  "publisher": "devwright",
+	"version": "0.0.2",
+  "publisher": "introcompsys",
 	"engines": {
-		"vscode": "^1.31.0"
+		"vscode": "^1.80.1"
 	},
 	"categories": [
 		"Other"
@@ -21,20 +21,20 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.terminalCapture.runCapture",
-				"title": "Terminal: Capture"
+				"command": "extension.betterterminalCapture.runCapture",
+				"title": "BetterTerminal: Capture"
 			}
 		],
 		"configuration": {
-			"title": "Terminal Capture",
+			"title": "Better Terminal Capture",
 			"type": "object",
 			"properties": {
-				"terminalCapture.enable": {
+				"betterterminalCapture.enable": {
 					"type": "boolean",
 					"description": "If false, disable the terminal capture extension",
 					"default": true
 				},
-				"terminalCapture.useClipboard": {
+				"betterterminalCapture.useClipboard": {
 					"type": "boolean",
 					"description": "If false, use the cache mode that tracks all history",
 					"default": true
