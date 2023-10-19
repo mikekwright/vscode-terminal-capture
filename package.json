@@ -1,62 +1,42 @@
 {
-	"name": "vscode-terminal-capture",
-	"displayName": "Terminal Capture",
-	"description": "  Take an open terminal's output and open it in a tab to quickly navigate and edit the output.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikekwright/vscode-terminal-capture"
+  "name": "terminal-recorder",
+  "displayName": "Terminal Recorder",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
   },
-	"version": "0.0.1",
-  "publisher": "devwright",
-	"engines": {
-		"vscode": "^1.31.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.terminalCapture.runCapture",
-				"title": "Terminal: Capture"
-			}
-		],
-		"configuration": {
-			"title": "Terminal Capture",
-			"type": "object",
-			"properties": {
-				"terminalCapture.enable": {
-					"type": "boolean",
-					"description": "If false, disable the terminal capture extension",
-					"default": true
-				},
-				"terminalCapture.useClipboard": {
-					"type": "boolean",
-					"description": "If false, use the cache mode that tracks all history",
-					"default": true
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
-	},
-	"devDependencies": {
-		"typescript": "^3.3.1",
-		"vscode": "^1.1.28",
-		"tslint": "^5.12.1",
-		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42"
-	},
-	"dependencies": {
-		"vsce": "^1.57.0"
-	}
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "terminal-recorder.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^18.18.5",
+    "@types/vscode": "^1.83.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.50.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  }
 }

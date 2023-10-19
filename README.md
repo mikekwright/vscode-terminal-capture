@@ -1,77 +1,71 @@
-VSCode - Terminal Capture
-=================================================
+# terminal-recorder README
 
-As a vim user, one of the features that I truly enjoy is the integrated
-terminal and the ability to switch to `Terminal-Normal` and quickly scroll
-through the output of my terminal. As such I wanted a quick and easy way
-to do something simliar in vscode (including using vi keys to navigate/interact
-with the terminal).  
-
-The first thing that I tried was using tmux in the terminal and start it by
-default when in a vscode environment.  While this worked, I didn't like the
-flow quite as much.  So I decided to try my hand at writing a vscode extension.  
+This is the README for your extension "terminal-recorder". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
-Take the output from the last active terminal and dump it into a new file.  
+Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-![Capture using Clipboard](images/vscode-terminal-capture-clipboard.gif)  
+For example if there is an image subfolder under your extension project workspace:
 
-There are currently two modes that the extension can run in.  
+\!\[feature X\]\(images/feature-x.png\)
 
-1. clipboard mode
-2. caching mode (**alpha** mode)
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-When using clipboard mode, the extension functions just like a macro where it
-quickly runs the following vscode commands.  
+## Requirements
 
-* `workbench.action.terminal.selectAll`
-* `workbench.action.terminal.copySelection`
-* `workbench.action.terminal.clearSelection`
-* `workbench.action.files.newUntitledFile`
-* `editor.action.clipboardPasteAction`
-
-The caching mode system will track all data entered into the terminal (including
-keypresses like backspace) and display all the captured content.  Right now this
-means that it will display all the special characters including `\b` and `\r`, etc.
-This is nice in that it can capture more of the history of how the terminal was run,
-however it will also use more memory as it is caching the output for the life of
-the terminal.  
-
-### Adding a Keybinding
-
-By default, this extension does not introduce a keybinding as we don't want
-to introduce a conflict or other confusion to your workflow.   It you would
-like to setup this command to a keybinding, here is an example of the json
-you can enter in the `keybindings.json` file.  
-
-    {
-      "key": "ctrl+t c",
-      "command": "extension.terminalCapture.runCapture",
-      "when": "terminalFocus"
-    }
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 
-This extension has a couple of settings depending on the type of usage you would
-like to have.  
+Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-* `terminalCaptuer.enable`: enable/disable this extension  
-* `terminalCapture.useClipboard`: use/disable clipboard copy mode  
+For example:
 
-This extension has a single command.  
+This extension contributes the following settings:
 
-* **Terminal: Capture Output** - `extension.terminalCapture.runCapture`  
+* `myExtension.enable`: Enable/disable this extension.
+* `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-At this time, it is known that the caching mode will include style characters
-in the output. This is to be fixed soon.  
+Calling out known issues can help limit users opening duplicate issues against your extension.
 
-### 0.1.0
+## Release Notes
 
-For this version, this is the initial release that supports using the clipboard to
-copy content from the terminal to an unamed file.  
+Users appreciate release notes as you update your extension.
 
-The cache mode is partially supported, but does not handle all special characters
-correctly.  This is currently not the recommended mode.  
+### 1.0.0
+
+Initial release of ...
+
+### 1.0.1
+
+Fixed issue #.
+
+### 1.1.0
+
+Added features X, Y, and Z.
+
+---
+
+## Following extension guidelines
+
+Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+
+* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+
+## Working with Markdown
+
+You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+
+* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
+* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
+* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+
+## For more information
+
+* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+
+**Enjoy!**
