@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
   }
 
-  context.subscriptions.push(vscode.commands.registerCommand('extension.terminalCapture.runCapture', () => {
+  context.subscriptions.push(vscode.commands.registerCommand('terminal-recorder.helloWorld', () => {
     if (options.get('enable') === false) {
       console.log('Command has been disabled, not running');
     }
@@ -55,22 +55,25 @@ function runCacheMode() {
     return;
   }
 
-  terminal.processId.then(terminalId => {
-    vscode.commands.executeCommand('workbench.action.files.newUntitledFile').then(() => {
-      let editor = vscode.window.activeTextEditor;
-      if (editor === undefined) {
-        vscode.window.showWarningMessage('Failed to find active editor to paste terminal content');
-        return;
-      }
+  terminal.processId.then((terminalId: number | undefined) => {
+    if (terminalId !== undefined) {
+      vscode.commands.executeCommand('workbench.action.files.newUntitledFile').then(() => {
+        let editor = vscode.window.activeTextEditor;
+        if (editor === undefined) {
+          vscode.window.showWarningMessage('Failed to find an active editor to paste terminal content');
+          return;
+        }
 
-      let cache = cleanupCacheData((<any>terminalData)[terminalId]);
-      editor.edit(builder => {
-        builder.insert(new vscode.Position(0, 0), cache);
+        let cache = cleanupCacheData((<any>terminalData)[terminalId]);
+        editor.edit(builder => {
+          builder.insert(new vscode.Position(0, 0), cache);
+        });
       });
-    });
+    } else {
+      vscode.window.showWarningMessage('Terminal ID is undefined, cannot capture');
+    }
   });
 }
-
 
 function runClipboardMode() {
   vscode.commands.executeCommand('workbench.action.terminal.selectAll').then(() => {
@@ -91,6 +94,7 @@ function cleanupCacheData(data: string): string {
 
 function registerTerminalForCapture(terminal: vscode.Terminal) {
   terminal.processId.then(terminalId => {
+    if (terminalId !== undefined) {
     (<any>terminalData)[terminalId] = "";
     (<any>terminal).onDidWriteData((data: any) => {
       // TODO:
@@ -99,5 +103,6 @@ function registerTerminalForCapture(terminal: vscode.Terminal) {
       //   - might have some odd output
       (<any>terminalData)[terminalId] += data;
     });
+  }
   });
 }
