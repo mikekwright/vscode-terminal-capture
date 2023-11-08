@@ -2,12 +2,12 @@
 	"name": "vscode-terminal-capture",
 	"displayName": "Terminal Capture",
 	"description": "  Take an open terminal's output and open it in a tab to quickly navigate and edit the output.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikekwright/vscode-terminal-capture"
-  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mikekwright/vscode-terminal-capture"
+	},
 	"version": "0.0.1",
-  "publisher": "devwright",
+	"publisher": "devwright",
 	"engines": {
 		"vscode": "^1.31.0"
 	},
@@ -21,8 +21,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.terminalCapture.runCapture",
-				"title": "Terminal: Capture"
+				"command": "extension.terminalRecorder.record",
+				"title": "Terminal: Record"
 			}
 		],
 		"configuration": {
@@ -50,11 +50,11 @@
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^3.3.1",
-		"vscode": "^1.1.28",
-		"tslint": "^5.12.1",
+		"@types/mocha": "^2.2.42",
 		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42"
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.37"
 	},
 	"dependencies": {
 		"vsce": "^1.57.0"
